@@ -1,2 +1,2 @@
 plotly.express
-sklearn
+sklearn.feature_extraction.text
