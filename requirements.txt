@@ -1,3 +1,4 @@
 plotly.express
+sklearn
 sklearn.feature_extraction.text
 sklearn.metrics.pairwise
