@@ -1,2 +1,3 @@
 plotly.express
 sklearn.feature_extraction.text
+pip install pandas==1.3.5
