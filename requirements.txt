@@ -1,4 +1,1 @@
-plotly
-json
-datetime
-sklearn
+plotly.express
