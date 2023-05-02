@@ -22,7 +22,7 @@ st.write("""I am often fascinated by the companies that show the most promise
          And for some, they're great to keep an eye on for remarkable returns.
          Come with me as we explore the 5000 fastest growing companies in the US.""")
 st.write("See the full 2022 Inc.5000 report here: https://www.inc.com/inc5000/2022")
-st.button("Skip to Analysis",)
+
 st.header("Extracting the data")
 background_info = st.expander("Want to learn more about this dataset?")
 with background_info:
@@ -52,7 +52,7 @@ st.write("JSON data, while still structured data, doesn't often present immediat
 st.write("With our raw data, let's clean it up and ensure it's ready for a thorough analysis.")
 st.write("Here's an example of one of our first company in the list")
 # Getting the top ranked company (index 0 in the list of companies)
-st.write(read_document['companies'][0].values())
+st.code(read_document['companies'][0].values(), language="python")
 st.write("As you can see, it's not in a usable format, so we'll have to clean it up using Pandas")
 json_details_expander = st.expander('If you want to know a bit more about extracting the company data from JSON')
 with json_details_expander:
@@ -81,8 +81,8 @@ metadata = pd.DataFrame({
     "Data Type": inc5000_companies.dtypes,
 })
 st.dataframe(metadata) #inc5000_companies.info() was not working with streamlit. I took another approach here
-
-st.write(f'Original Columns: {inc5000_companies.columns}')
+st.write("Original columns:")
+st.code(inc5000_companies.columns, language="python")
 old_column_count = len(inc5000_companies.columns)
 inc5000_companies.dropna(axis = 1,
                          thresh=5 ,
@@ -98,7 +98,8 @@ inc5000_companies = inc5000_companies[cols_to_keep]
 inc5000_companies.columns = ['Rank', 'Company', 'Employees', 'Employees Last Year', 'CEO Gender',
 'Website', 'State', 'City', '% Growth (3yr)', 'Revenue Bucket', 'Industry',
 'Zipcode', 'Founded', 'Revenue', 'Years on List', 'Tags', 'Description']
-st.write(f'New Columns: {inc5000_companies.columns}')
+st.write('New Columns:')
+st.code(inc5000_companies.columns, language='python')
 st.write("With our data cleaned and ready, we can begin our deep dive into the world of fast-growing companies, uncovering patterns and trends that shape these businesses.")
 
 #------------------------------------------
